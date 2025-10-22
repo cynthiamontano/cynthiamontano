@@ -1,174 +1,34 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cynthia Montaño - Enlaces Oficiales</title>
-
-  <!-- Fuente e íconos -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #6a0dad, #ffeb3b);
-      color: white;
-    }
-
-    .container {
-      max-width: 550px;
-      margin: auto;
-      padding: 25px;
-    }
-
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid white;
-      margin-top: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    h1 {
-      margin: 20px 0 5px;
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    p {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 20px;
-      margin-top: 35px;
-      margin-bottom: 15px;
-      color: #fff;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      border-bottom: 2px solid white;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    .link-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin: 15px auto;
-      padding: 15px;
-      width: 85%;
-      max-width: 350px;
-      background: white;
-      color: #6a0dad;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: transform 0.2s, background 0.3s;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    }
-
-    .link-btn:hover {
-      background: #ffeb3b;
-      transform: scale(1.05);
-      color: black;
-    }
-
-    .link-btn i {
-      font-size: 22px;
-    }
-
-    /* Imagen de ParaCaminar Tour ajustada */
-    .card img {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 15px;
-      margin-top: 25px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    .card h1 {
-      font-size: 22px;
-      margin-top: 10px;
-      color: #fff;
-      text-shadow: 0 0 5px rgba(0,0,0,0.5);
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      opacity: 0.8;
-      margin-bottom: 20px;
-    }
-
-    /* 🔹 Diseño Responsive */
-    @media (max-width: 600px) {
-      .container {
-        width: 90%;
-        padding: 15px;
-      }
-
-      .profile-img {
-        width: 140px;
-        height: 140px;
-        margin-top: 20px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      p {
-        font-size: 15px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-
-      .link-btn {
-        width: 100%;
-        font-size: 16px;
-        padding: 12px;
-      }
-
-      .card img {
-        max-width: 100%;
-        border-radius: 10px;
-      }
-
-      footer {
-        font-size: 12px;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <div class="container">
-    <!-- Foto -->
-    <img src="cynthia.jpg" alt="Foto de Cynthia Montaño" class="profile-img">
-
-    <!-- Nombre -->
+  <div class="container card-wrapper">
+    <img src="cynthia.jpg" alt="Foto de Cynthia Montaño" class="profile-img" />
     <h1>Cynthia Montaño</h1>
-    <p>Artista Afrocolombiana • Gestora cultural</p>
+    <p class="descripcion">Artista Afrocolombiana • Gestora cultural</p>
 
-    <!-- Imagen ParaCaminar Tour -->
-    <div class="card">
-      <img src="paraCaminarTour.jpg" alt="Para Caminar Tour">
-      <h1>Para Caminar Tour</h1>
-    </div>
+  
 
-    <!-- Redes Sociales -->
+<div class="card">
+  <img src="paraCaminarTour.jpg" alt="Para Caminar Tour" class="card-img">
+  <div class="card-content">
+    <h3>Para Caminar Tour</h3>
+  </div>
+</div>
+
+
+
     <h2>Sígueme</h2>
-
     <a href="https://www.youtube.com/channel/UCIrdFBfrOII-9vraFdFWMpw" class="link-btn"><i class="fab fa-youtube"></i> YouTube</a>
     <a href="https://www.instagram.com/cynthiamontanoc/" class="link-btn"><i class="fab fa-instagram"></i> Instagram</a>
     <a href="https://www.tiktok.com/@cynthiamontanoc" class="link-btn"><i class="fab fa-tiktok"></i> TikTok</a>
@@ -176,22 +36,18 @@
     <a href="https://x.com/cynthiamontanoc" class="link-btn"><i class="fab fa-x-twitter"></i> X (Twitter)</a>
     <a href="https://cynthiamontano.com.co/" class="link-btn"><i class="fas fa-globe"></i> Página Web</a>
 
-    <!-- Plataformas de música -->
     <h2>Escúchame en</h2>
-    <a href="https://open.spotify.com/intl-es/artist/0ZmLQD0JMILG9pXpHLTfaw" class="link-btn"><i class="fab fa-spotify"></i> Spotify</a>
-    <a href="https://music.apple.com/co/artist/cynthia-monta%C3%B1o/421681646" class="link-btn"><i class="fab fa-apple"></i> Apple Music</a>
-    <a href="https://music.amazon.com/artists/B004OQ02FY/cynthia-monta%C3%B1o" class="link-btn"><i class="fab fa-amazon"></i> Amazon Music</a>
-    <a href="https://www.deezer.com/mx/artist/1195986" class="link-btn"><i class="fab fa-deezer"></i> Deezer</a>
+    <a href="#" class="link-btn"><i class="fab fa-spotify"></i> Spotify</a>
+    <a href="#" class="link-btn"><i class="fab fa-apple"></i> Apple Music</a>
+    <a href="#" class="link-btn"><i class="fab fa-amazon"></i> Amazon Music</a>
 
-    <!-- Formularios -->
-    <h2>Únete a la Familia Cynthia Montaño</h2>
-    <a href="https://forms.gle/ePcwAakw3bDTDPoVA" class="link-btn"><i class="fas fa-user-plus"></i> Comunidad en Español</a>
-    <a href="https://forms.gle/uNeokkFqp2WVvMbA8" class="link-btn"><i class="fas fa-globe-americas"></i> Community in English</a>
+    <h2>Formulario</h2>
+    <a href="formulario.html" class="link-btn"><i class="fas fa-user-plus"></i> Únete a la Familia</a>
 
-    <!-- Pie de página -->
     <footer>
       © 2025 Cynthia Montaño — Todos los derechos reservados
     </footer>
   </div>
 </body>
 </html>
+
