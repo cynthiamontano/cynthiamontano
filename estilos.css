@@ -1,0 +1,174 @@
+/* Fuente global y fondo */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #6a0dad, #ffeb3b);
+  color: white;
+}
+
+/* Contenedor general con efecto cristal */
+.container {
+  max-width: 550px;
+  margin: auto;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+/* Imagen de perfil o logo */
+.profile-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid white;
+  margin-top: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Títulos */
+h1, h2 {
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+p.descripcion {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Card para secciones como "Tour" */
+.card {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 30px;
+  object-fit: cover;
+  max-height: 700px;
+}
+
+/* Botones de enlaces */
+.link-btn {
+  display: block;
+  text-decoration: none;
+  background: white;
+  color: #6a0dad;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.3s;
+}
+
+.link-btn:hover {
+  background: #ffeb3b;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Formulario */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+/* WhatsApp Container */
+.whatsapp-container {
+  display: flex;
+  gap: 5px;
+}
+
+#indicativo {
+  width: 120px;
+}
+
+#whatsapp {
+  flex: 1;
+}
+
+/* Botón principal */
+button#btnEnviar {
+  background: white;
+  color: #6a0dad;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button#btnEnviar:hover {
+  background: #ffeb3b;
+  color: black;
+  transform: scale(1.05);
+}
+
+/* Mensaje de confirmación */
+#mensajeConfirmacion {
+  margin-top: 15px;
+  font-weight: bold;
+  display: none;
+  color: #00ff00;
+}
+
+#mensajeConfirmacion.mostrar {
+  display: block;
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  font-size: 14px;
+  opacity: 0.9;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .profile-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 14px;
+  }
+}
