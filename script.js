@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 1. URL de la Aplicación Web (Apps Script)
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbz91xkJ_0RSALKU2X9pTo4qFIbXscebZs7RIusgmnvsyUlMdOXStSPu9MhTA9WBVLLN/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby_C0UJrpxBQf15gkAxDnmB56Lbi62TVP3o4fEdX7_838jsEyY4Yhm4v12jYAurIIuX/exec';
 
     // 2. Referencias al formulario y elementos
     const form = document.getElementById('registroForm');
@@ -165,3 +165,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
