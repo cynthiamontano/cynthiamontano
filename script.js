@@ -42,26 +42,22 @@ document.addEventListener('DOMContentLoaded', function() {
         "cuba": "+53",
         "brasil": "+55",
         "brazil": "+55",
-        "méjico": "+52" // por si alguien escribe con variante antigua
+        "méjico": "+52"
     };
 
     // Normaliza texto: elimina acentos y espacios extra, y pasa a minúsculas
     function normalizarPais(text) {
         if (!text) return '';
-        // quitar acentos
         const withOutAccents = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         return withOutAccents.trim().toLowerCase();
     }
 
-    // Detecta país (por coincidencia completa o por inicio)
+    // Detecta país por coincidencia
     function detectarPrefijoPorPais(text) {
         const t = normalizarPais(text);
         if (!t) return null;
-
-        // coincidir exacto
         if (prefijos[t]) return prefijos[t];
 
-        // intentar coincidencia por inicio/contains (ej: "col" -> colombia)
         for (const key of Object.keys(prefijos)) {
             if (t.includes(key) || key.includes(t) || t.startsWith(key) || key.startsWith(t)) {
                 return prefijos[key];
@@ -70,62 +66,42 @@ document.addEventListener('DOMContentLoaded', function() {
         return null;
     }
 
-    // ------------- EVENTOS: cuando el usuario escribe el país -------------
+    // ------------- EVENTOS DEL PAÍS -------------
     if (inputPais && inputIndicativo) {
-        // cuando escriba (input) o cuando pierda foco (blur) intentamos detectar
         const asignarPrefijo = () => {
             const valorPais = inputPais.value;
             const pref = detectarPrefijoPorPais(valorPais);
-            if (pref) {
-                inputIndicativo.value = pref;
-            } else {
-                // si no lo reconoce no sobreescribimos si ya hay algo; opcional:
-                // inputIndicativo.value = '+XXX';
-            }
+            if (pref) inputIndicativo.value = pref;
         };
 
-        inputPais.addEventListener('input', function() {
-            asignarPrefijo();
-        });
-
-        inputPais.addEventListener('blur', function() {
-            asignarPrefijo();
-        });
-
-        // si quieres, también rellenar automáticamente el indicativo al cargar la página
-        // asignarPrefijo();
+        inputPais.addEventListener('input', asignarPrefijo);
+        inputPais.addEventListener('blur', asignarPrefijo);
     }
 
-    // ------------- Ajustes para el número de documento (teclado numérico en móviles) -------------
+    // ------------- Número de documento solo números -------------
     if (inputNumeroDoc) {
-        // Forzar inputmode y patrón (mejor compatibilidad en móviles)
         inputNumeroDoc.setAttribute('inputmode', 'numeric');
         inputNumeroDoc.setAttribute('pattern', '[0-9]*');
-        // Opcional: evitar que se peguen letras
-        inputNumeroDoc.addEventListener('input', function(e) {
-            // eliminar todo lo que no sea dígito
+        inputNumeroDoc.addEventListener('input', function() {
             const clean = this.value.replace(/\D+/g, '');
             if (this.value !== clean) this.value = clean;
         });
     }
 
-    // Opcional: proteger el campo indicativo para que sólo tenga + y números
+    // ------------- Prefijo solo + y números -------------
     if (inputIndicativo) {
         inputIndicativo.addEventListener('input', function() {
             this.value = this.value.replace(/[^+\d]/g, '');
         });
     }
 
-    // ------------------ ENVÍO (mantenemos tu lógica de fetch) ------------------
-    // Opcional: elimina atributo 'action' si existe
-    if (form) form.removeAttribute('action');
-
+    // ------------------ ENVÍO DEL FORMULARIO ------------------
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
         btnEnviar.disabled = true;
         btnEnviar.textContent = 'Enviando...';
-        if (mensajeConfirmacion) mensajeConfirmacion.classList.add('oculto');
+        mensajeConfirmacion.classList.add('oculto');
 
         const formData = new FormData(form);
 
@@ -141,12 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(data => {
             if (data && data.result === 'success') {
-                if (mensajeConfirmacion) {
-                    mensajeConfirmacion.textContent = '✅ Gracias por unirte. Tu registro fue enviado exitosamente.';
-                    mensajeConfirmacion.classList.remove('oculto');
-                }
+                mensajeConfirmacion.textContent = '✅ Gracias por unirte. Tu registro fue enviado exitosamente.';
+                mensajeConfirmacion.classList.remove('oculto');
                 form.reset();
-                // opcional: reset indicativo a +XXX
                 if (inputIndicativo) inputIndicativo.value = '+XXX';
             } else {
                 throw new Error('Error en el script de Google: ' + (data.message || 'Respuesta inesperada.'));
@@ -154,10 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error al enviar los datos:', error);
-            if (mensajeConfirmacion) {
-                mensajeConfirmacion.textContent = '❌ Ocurrió un error al enviar el formulario: ' + error.message;
-                mensajeConfirmacion.classList.remove('oculto');
-            }
+            mensajeConfirmacion.textContent = '❌ Ocurrió un error al enviar el formulario: ' + error.message;
+            mensajeConfirmacion.classList.remove('oculto');
         })
         .finally(() => {
             btnEnviar.disabled = false;
@@ -165,4 +136,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 
